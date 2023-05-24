@@ -80,6 +80,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
     student_nb = nbformat.read(f'{args.assignment_name}/{args.assignment_name}.ipynb',
                                 as_version=4)
-    reference_nb = nbformat.read(f'release/{args.assignment_name}.ipynb', as_version=4)
+    reference_nb = nbformat.read(f'release/{args.assignment_name}/{args.assignment_name}.ipynb', as_version=4)
     final_nb = replace_autograding_cells(student_nb, reference_nb)
     nbformat.write(final_nb, f'{args.assignment_name}.ipynb')
