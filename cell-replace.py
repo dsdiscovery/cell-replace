@@ -84,4 +84,4 @@ if __name__ == '__main__':
     student_nb = nbformat.read(args.student_fp, as_version=4)
     reference_nb = nbformat.read(args.reference_fp, as_version=4)
     final_nb = replace_autograding_cells(student_nb, reference_nb)
-    nbformat.write(final_nb, f'{args.assignment_name}.ipynb')
+    nbformat.write(final_nb, args.student_fp)
