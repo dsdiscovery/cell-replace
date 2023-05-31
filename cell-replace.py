@@ -18,7 +18,6 @@ def get_test_cell_id(cell: dict) -> str:
     """
     first_line = cell['source'].splitlines()[0]
     test_id = first_line.split(ID_DELIMITER)[1].strip()
-    print(test_id)
     return test_id
 
 def build_id_dict(
@@ -58,6 +57,7 @@ def replace_autograding_cells(
     # check to make sure all necessary test cells exist inside student_nb
     student_test_cells = build_id_dict(student_nb)
     reference_test_cells = build_id_dict(reference_nb)
+    print(reference_test_cells)
     for test_id in reference_test_cells.keys():
         if test_id not in student_test_cells:
             raise LookupError(f'A test cell with ID {test_id} could not be'
