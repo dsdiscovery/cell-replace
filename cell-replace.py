@@ -3,6 +3,7 @@ import nbformat
 from collections.abc import Mapping
 
 TEST_PREFIX = '### TEST CASE'
+ID_DELIMITER = 'for'
 
 def is_test_cell(cell: dict) -> bool:
     """Checks if `cell` is a test cell."""
@@ -16,7 +17,7 @@ def get_test_cell_id(cell: dict) -> str:
     NOTE: This function assumes that cell is a well-formatted test cell.
     """
     first_line = cell['source'].splitlines()[0]
-    test_id = first_line.split('--')[1].strip()
+    test_id = first_line.split(ID_DELIMITER)[1].strip()
     return test_id
 
 def build_id_dict(
