@@ -18,6 +18,7 @@ def get_test_cell_id(cell: dict) -> str:
     """
     first_line = cell['source'].splitlines()[0]
     test_id = first_line.split(ID_DELIMITER)[1].strip()
+    print(test_id)
     return test_id
 
 def build_id_dict(
